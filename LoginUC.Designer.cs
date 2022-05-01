@@ -47,7 +47,7 @@
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(321, 103);
+            this.panel1.Location = new System.Drawing.Point(326, 107);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(162, 211);
             this.panel1.TabIndex = 2;
@@ -59,7 +59,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(35, 196);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(92, 15);
-            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Criar uma conta";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -70,7 +70,7 @@
             this.chkRemember.Location = new System.Drawing.Point(3, 116);
             this.chkRemember.Name = "chkRemember";
             this.chkRemember.Size = new System.Drawing.Size(84, 19);
-            this.chkRemember.TabIndex = 4;
+            this.chkRemember.TabIndex = 2;
             this.chkRemember.Text = "Remember";
             this.chkRemember.UseVisualStyleBackColor = true;
             // 
@@ -79,7 +79,8 @@
             this.txtUsername.Location = new System.Drawing.Point(3, 58);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(154, 23);
-            this.txtUsername.TabIndex = 3;
+            this.txtUsername.TabIndex = 0;
+            this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextFieldUsernameKeyDown);
             // 
             // txtPassword
             // 
@@ -87,17 +88,18 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(154, 23);
-            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextFieldPasswordKeyDown);
             // 
             // btnLogin
             // 
             this.btnLogin.Location = new System.Drawing.Point(3, 153);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(154, 23);
-            this.btnLogin.TabIndex = 1;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.ButtonLoginClick);
             // 
             // label1
             // 

@@ -1,33 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Messenger
+﻿namespace Messenger
 {
     public partial class LoginUC : UserControl
     {
-        private Delegate LoginClick;
+        private readonly Delegate loginDelegate;
 
-        public LoginUC(Delegate callback)
+        public LoginUC(Delegate loginDelegate)
         {
             InitializeComponent();
 
-            LoginClick = callback;
+            this.loginDelegate = loginDelegate;
         }
 
-        private void ButtonLogin_Click(object sender, EventArgs e)
+        private void ButtonLoginClick(object sender, EventArgs e)
         {
-            if(txtUsername.Text == "" || txtPassword.Text == "")
+            Login();
+        }
+
+        private void TextFieldUsernameKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                MessageBox.Show("Username and password must be informed");
+                txtPassword.Select();
             }
-            LoginClick.DynamicInvoke(new object[] { txtUsername, txtPassword });
+        }
+
+        private void TextFieldPasswordKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Login();
+            }
+        }
+
+        private void Login()
+        {
+            if (txtUsername.Text == "")
+            {
+                MessageBox.Show("Username must be informed.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (txtPassword.Text == "")
+            {
+                MessageBox.Show("Password must be informed.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            loginDelegate.DynamicInvoke(new object[] { txtUsername.Text, txtPassword.Text });
         }
     }
 }

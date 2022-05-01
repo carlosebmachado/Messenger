@@ -1,6 +1,6 @@
 ﻿namespace Messenger
 {
-    partial class Application
+    partial class App
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,14 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Application
+            // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Application";
+            this.Name = "App";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messenger";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ApplicationFormClosed);
             this.Load += new System.EventHandler(this.ApplicationLoad);
             this.ResumeLayout(false);
 
