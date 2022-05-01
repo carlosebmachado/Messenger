@@ -144,15 +144,15 @@ namespace Messenger
         private void SetStatusOnlineClick(object sender, EventArgs e)
         {
             SetStatus(Availability.Online);
-            tsmiOffiline.Checked = true;
-            tsmiOnline.Checked = false;
+            tsmiOffiline.Checked = false;
+            tsmiOnline.Checked = true;
         }
 
         private void SetStatusOffilineClick(object sender, EventArgs e)
         {
             SetStatus(Availability.Offline);
-            tsmiOffiline.Checked = false;
-            tsmiOnline.Checked = true;
+            tsmiOffiline.Checked = true;
+            tsmiOnline.Checked = false;
         }
     }
 }
