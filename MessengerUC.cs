@@ -6,14 +6,15 @@ namespace Messenger
     public partial class MessengerUC : UserControl
     {
         private ArtalkXmppClient client;
-        private Roster roster;
         private string name = null;
 
         private readonly Delegate exit;
 
         private string[] users = {
             "admin@desktop-22frc2k.dlink",
-            "carlos@desktop-22frc2k.dlink"
+            "carlos@desktop-22frc2k.dlink",
+            "caio@desktop-22frc2k.dlink",
+            "herikc@desktop-22frc2k.dlink"
         };
 
         public MessengerUC(ArtalkXmppClient client, Delegate exit)
