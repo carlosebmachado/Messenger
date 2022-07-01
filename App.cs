@@ -23,10 +23,15 @@ namespace Messenger
             SetUC(loginUC);
         }
 
+        /**
+         * Realzia login a partir das credenciais informadas
+         */
         private void Login(string username, string password)
         {
+            // instancia o client XMPP
             client = new ArtalkXmppClient(HOSTNAME, username, password, 5222, false);
             Connect();
+            // passa a istancia pro messenger
             messengerUC.SetClient(client);
             SetUC(messengerUC);
         }
@@ -56,6 +61,7 @@ namespace Messenger
             {
                 try
                 {
+                    // conecta informando de onde
                     client.Connect("app");
                 }
                 catch (Exception ex)
@@ -71,6 +77,7 @@ namespace Messenger
                     }
                 }
             });
+            // inicia o client
             clientConnection.Start();
         }
 

@@ -79,22 +79,30 @@ namespace Messenger
             SendMessage();
         }
 
+        /**
+         * Envia mensagem para um usuário
+         */
         private void SendMessage()
         {
             if (txtMessage.Text == "") return;
             if (!client.Connected) return;
             SetName();
+            // envia mensagem passando o usuário e a mensagem
             client.SendMessage(cbUsers.Text, name + ":" + txtMessage.Text);
             AddMessage(name, txtMessage.Text);
             txtMessage.Text = "";
         }
 
+        /**
+         * Modifica o status do usuário
+         */
         private void SetStatus(Availability status)
         {
             if (client.Connected)
             {
                 try
                 {
+                    // seta o status do client
                     client.SetStatus(status);
                 }
                 catch(Exception e)
@@ -104,11 +112,16 @@ namespace Messenger
             }
         }
 
+        /**
+         * Gerencia as mensagens recebidas
+         */
         void OnNewMessage(object? sender, MessageEventArgs e)
         {
+            // recupera a mensagem
             var body = e.Message.Body.Trim();
             var user = body.Split(':')[0];
             var message = body[(user.Length + 1)..];
+            // add na tela
             AddMessage(user, message);
         }
 
